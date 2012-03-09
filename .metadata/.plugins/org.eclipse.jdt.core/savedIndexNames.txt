@@ -1,0 +1,2 @@
+INDEX VERSION 1.126+D:\БГУИР\3-й курс\6 семестр\Курсовой\scanner-Wi-Fi\.metadata\.plugins\org.eclipse.jdt.core
+2938649015.index
