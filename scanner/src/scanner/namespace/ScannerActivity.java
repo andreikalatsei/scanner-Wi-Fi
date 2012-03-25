@@ -24,6 +24,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
@@ -37,6 +40,30 @@ public class ScannerActivity extends Activity {
     WifiReceiver receiverWifi;
     List<ScanResult> wifiList;
     StringBuilder sb = new StringBuilder();
+    
+    LocationManager locationManager;
+    LocationListener locationListener = new LocationListener(){
+
+		public void onLocationChanged(Location location) {
+			// TODO Auto-generated method stub
+		}
+
+		public void onProviderDisabled(String provider) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void onProviderEnabled(String provider) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void onStatusChanged(String provider, int status, Bundle extras) {
+			// TODO Auto-generated method stub
+			
+		}};
+    //String context, provider;
+ 
  
     public void onCreate(Bundle savedInstanceState) {
        super.onCreate(savedInstanceState);
@@ -47,6 +74,13 @@ public class ScannerActivity extends Activity {
        registerReceiver(receiverWifi, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
        mainWifi.startScan();
        mainText.setText("\nStarting Scan...\n");
+       
+       //context = Context.LOCATION_SERVICE;
+       locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+       locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+       //provider = LocationManager.GPS_PROVIDER;
+       //location = locationManager.getLastKnownLocation(provider);
+       
     }
  
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -57,6 +91,9 @@ public class ScannerActivity extends Activity {
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
         mainWifi.startScan();
         mainText.setText("Starting Scan");
+        
+       // location = locationManager.getLastKnownLocation(provider);
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
         return super.onMenuItemSelected(featureId, item);
     }
  
@@ -80,6 +117,11 @@ public class ScannerActivity extends Activity {
                 sb.append((wifiList.get(i)).toString());
                 sb.append("\n");
             }
+            sb.append("\n");
+            Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            sb.append(location.getLatitude());
+            sb.append("\n");
+            sb.append(location.getLongitude());
             mainText.setText(sb);
         }
     }
