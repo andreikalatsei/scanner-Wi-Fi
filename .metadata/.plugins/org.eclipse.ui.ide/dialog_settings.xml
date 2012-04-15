@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<section name="SaveAsDialogSettings">
-		<item value="700" key="DIALOG_WIDTH"/>
-		<item value="99" key="DIALOG_Y_ORIGIN"/>
-		<item value="637" key="DIALOG_HEIGHT"/>
-		<item value="617" key="DIALOG_X_ORIGIN"/>
-		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
-	</section>
 	<section name="CleanDialogSettings">
 		<item value="658" key="DIALOG_WIDTH"/>
-		<item value="true" key="BUILD_NOW"/>
-		<item value="false" key="BUILD_ALL"/>
-		<item value="190" key="DIALOG_Y_ORIGIN"/>
-		<item value="490" key="DIALOG_HEIGHT"/>
+		<item value="240" key="DIALOG_Y_ORIGIN"/>
+		<item value="415" key="DIALOG_HEIGHT"/>
 		<item value="631" key="DIALOG_X_ORIGIN"/>
 		<item value="false" key="TOGGLE_SELECTED"/>
 	</section>

@@ -74,16 +74,26 @@ public class ScannerActivity extends Activity {
     }
  
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0, 0, 0, "Refresh");
+        menu.add(0, 0, 0, "Обновить");
+        menu.add(0, 1, 0, "Карта");
         return super.onCreateOptionsMenu(menu);
     }
  
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
-        mainWifi.startScan();
-        mainText.setText("Starting Scan");
-        
-     // location = locationManager.getLastKnownLocation(provider);
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+    	switch (item.getItemId()) {
+    		case 0:
+		        mainWifi.startScan();
+		        mainText.setText("Starting Scan");
+		        
+		        // location = locationManager.getLastKnownLocation(provider);
+		        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+		        break;
+	        
+    		case 1:
+    			Intent intent = new Intent(this, Maps.class);
+    		    startActivity(intent);
+    		    break;
+	    }
         return super.onMenuItemSelected(featureId, item);
     }
  
