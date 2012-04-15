@@ -27,6 +27,7 @@ public class ScannerActivity extends Activity {
     StringBuilder sb = new StringBuilder();
     boolean wifiState; //хранение исходного состояния wifi в телефоне
     
+    Location location;
     LocationManager locationManager;
     LocationListener locationListener = new LocationListener(){
 
@@ -91,6 +92,8 @@ public class ScannerActivity extends Activity {
 	        
     		case 1:
     			Intent intent = new Intent(this, Maps.class);
+    			intent.putExtra("latitude", location.getLatitude());
+    			intent.putExtra("longitude", location.getLongitude());
     		    startActivity(intent);
     		    break;
 	    }
@@ -128,7 +131,7 @@ public class ScannerActivity extends Activity {
                 sb.append("\n");
             }
             sb.append("\n");
-            Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
             if (location != null){
 	            sb.append(location.getLatitude());
 	            sb.append("\n");
