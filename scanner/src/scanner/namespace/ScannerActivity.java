@@ -1,69 +1,55 @@
 package scanner.namespace;
 
-/**import android.app.Activity;
-import android.os.Bundle;
-import android.widget.*;
-
-public class ScannerActivity extends Activity {
-    /** Called when the activity is first created. */
-    /**@Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-        
-        /** вывод на экран найденных точек*/
-       /** final TextView text = (TextView)findViewById(R.id.TextView01);
-    }
-}*/
-
-
-
 import java.util.List;
+
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
- 
+import android.widget.Toast;
+
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+
 public class ScannerActivity extends Activity {
-    TextView mainText;
+	TextView mainText;
     WifiManager mainWifi;
     WifiReceiver receiverWifi;
     List<ScanResult> wifiList;
     StringBuilder sb = new StringBuilder();
+    boolean wifiState; //хранение исходного состояния wifi в телефоне
     
     LocationManager locationManager;
     LocationListener locationListener = new LocationListener(){
 
-		public void onLocationChanged(Location location) {
-			// TODO Auto-generated method stub
-		}
-
-		public void onProviderDisabled(String provider) {
+		public void onLocationChanged(Location arg0) {
 			// TODO Auto-generated method stub
 			
 		}
 
-		public void onProviderEnabled(String provider) {
+		public void onProviderDisabled(String arg0) {
 			// TODO Auto-generated method stub
 			
 		}
 
-		public void onStatusChanged(String provider, int status, Bundle extras) {
+		public void onProviderEnabled(String arg0) {
 			// TODO Auto-generated method stub
 			
-		}};
-    //String context, provider;
- 
+		}
+
+		public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
+			// TODO Auto-generated method stub
+			
+		}
+    };
  
     public void onCreate(Bundle savedInstanceState) {
        super.onCreate(savedInstanceState);
@@ -72,6 +58,11 @@ public class ScannerActivity extends Activity {
        mainWifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
        receiverWifi = new WifiReceiver();
        registerReceiver(receiverWifi, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
+       //если wifi в телефоне выключен, включаем его
+       wifiState = mainWifi.isWifiEnabled();
+       if (!wifiState){
+    	   mainWifi.setWifiEnabled(true);
+       }
        mainWifi.startScan();
        mainText.setText("\nStarting Scan...\n");
        
@@ -80,7 +71,6 @@ public class ScannerActivity extends Activity {
        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
        //provider = LocationManager.GPS_PROVIDER;
        //location = locationManager.getLastKnownLocation(provider);
-       
     }
  
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -92,24 +82,34 @@ public class ScannerActivity extends Activity {
         mainWifi.startScan();
         mainText.setText("Starting Scan");
         
-       // location = locationManager.getLastKnownLocation(provider);
+     // location = locationManager.getLastKnownLocation(provider);
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
         return super.onMenuItemSelected(featureId, item);
     }
  
     protected void onPause() {
+    	// выключаем отслеживание
+        locationManager.removeUpdates(locationListener);
         unregisterReceiver(receiverWifi);
         super.onPause();
     }
  
     protected void onResume() {
+    	//включаем отслеживание
+    	locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
         registerReceiver(receiverWifi, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
         super.onResume();
     }
+    
+    /*protected void onStop(){
+    	if(wifiState){
+    		mainWifi.setWifiEnabled(false);
+    	}
+    }*/
  
     class WifiReceiver extends BroadcastReceiver {
- 
-        public void onReceive(Context c, Intent intent) {
+    	
+		public void onReceive(Context c, Intent intent) {
             sb = new StringBuilder();
             wifiList = mainWifi.getScanResults();
             for(int i = 0; i < wifiList.size(); i++){
@@ -119,9 +119,21 @@ public class ScannerActivity extends Activity {
             }
             sb.append("\n");
             Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-            sb.append(location.getLatitude());
-            sb.append("\n");
-            sb.append(location.getLongitude());
+            if (location != null){
+	            sb.append(location.getLatitude());
+	            sb.append("\n");
+	            sb.append(location.getLongitude());
+	            sb.append("\n");
+	            if (location.hasAccuracy()){
+	            	sb.append(location.getAccuracy());
+	            	sb.append("\n");
+	            }
+	            if (location.hasAltitude()){
+	            	sb.append(location.getAltitude());
+	            }
+            }
+            else
+            	Toast.makeText(getApplicationContext(), "Не удалось получить координаты", Toast.LENGTH_LONG).show();
             mainText.setText(sb);
         }
     }
