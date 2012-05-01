@@ -32,3 +32,22 @@ Java Model Exception: Java Model Status [Timed out while retrieving the attached
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
 !SUBENTRY 1 org.eclipse.jdt.core 4 1012 2012-04-15 20:15:13.201
 !MESSAGE Timed out while retrieving the attached javadoc for Intent [in Intent.class [in android.content [in C:\Users\Администратор\android-sdks\platforms\android-7\android.jar]]] 
+!SESSION 2012-05-01 13:53:45.318 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_03
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=ru_RU
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2012-05-01 13:53:56.381
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-05-02 00:22:10.950
+!MESSAGE map.xml: Failed to find style 'mapViewStyle' in current theme
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-05-02 00:22:11.038
+!MESSAGE map.xml: Failed to find style 'mapViewStyle' in current theme
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2012-05-02 00:22:11.057
+!MESSAGE map.xml: Failed to find style 'mapViewStyle' in current theme

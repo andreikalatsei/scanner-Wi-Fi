@@ -4,9 +4,11 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
@@ -26,6 +28,8 @@ public class ScannerActivity extends Activity {
     List<ScanResult> wifiList;
     StringBuilder sb = new StringBuilder();
     boolean wifiState; //хранение исходного состояния wifi в телефоне
+    
+    DBHelper dbHelper;
     
     Location location;
     LocationManager locationManager;
@@ -72,17 +76,27 @@ public class ScannerActivity extends Activity {
        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
        //provider = LocationManager.GPS_PROVIDER;
        //location = locationManager.getLastKnownLocation(provider);
+       
+       // создаем объект для создания и управления версиями БД
+       dbHelper = new DBHelper(this);
     }
  
-    public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0, 0, 0, "Обновить");
-        menu.add(0, 1, 0, "Карта");
+    public boolean onCreateOptionsMenu(Menu menu) {     
+    	 menu.add (Menu.FIRST, 1, 1, "Обновить");  
+         menu.add (Menu.FIRST, 2, 2, "Карта");           
+         menu.add (Menu.FIRST, 3, 3, "Просмотр базы");  
+         menu.add (Menu.FIRST, 4, 4, "Удалить базу");  
+         menu.add (Menu.FIRST, 5, 5, "Выход");  
+           
+         //menu.add (Menu.CATEGORY_SECONDARY, 6, 6, "Item 1");  
+         //menu.add (Menu.CATEGORY_SECONDARY, 7, 7, "Item 2");  
+         //menu.add (Menu.CATEGORY_SECONDARY, 8, 8, "Item 3");  
         return super.onCreateOptionsMenu(menu);
     }
  
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
     	switch (item.getItemId()) {
-    		case 0:
+    		case 1:
 		        mainWifi.startScan();
 		        mainText.setText("Starting Scan");
 		        
@@ -90,12 +104,18 @@ public class ScannerActivity extends Activity {
 		        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
 		        break;
 	        
-    		case 1:
+    		case 2:
     			Intent intent = new Intent(this, Maps.class);
     			intent.putExtra("latitude", location.getLatitude());
     			intent.putExtra("longitude", location.getLongitude());
     		    startActivity(intent);
     		    break;
+    		case 3:
+    			break;
+    		case 4:
+    			break;
+    		case 5:
+    			finish();
 	    }
         return super.onMenuItemSelected(featureId, item);
     }
@@ -125,13 +145,28 @@ public class ScannerActivity extends Activity {
 		public void onReceive(Context c, Intent intent) {
             sb = new StringBuilder();
             wifiList = mainWifi.getScanResults();
+            
+            // подключаемся к БД
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
+            // создаем объект для данных
+            ContentValues cv = new ContentValues();
+            location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            
             for(int i = 0; i < wifiList.size(); i++){
                 sb.append(new Integer(i+1).toString() + ".");
                 sb.append((wifiList.get(i)).toString());
                 sb.append("\n");
+                
+                cv.put("name", wifiList.get(i).SSID);
+                cv.put("latitude", location.getLatitude());
+                cv.put("longitude", location.getLongitude());
+                long rowID = db.insert("mytable", null, cv);
+                
+                sb.append(rowID);
+                sb.append("\n");
             }
             sb.append("\n");
-            location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+          
             if (location != null){
 	            sb.append(location.getLatitude());
 	            sb.append("\n");
@@ -148,6 +183,7 @@ public class ScannerActivity extends Activity {
             else
             	Toast.makeText(getApplicationContext(), "Не удалось получить координаты", Toast.LENGTH_LONG).show();
             mainText.setText(sb);
+            dbHelper.close();
         }
     }
 }
