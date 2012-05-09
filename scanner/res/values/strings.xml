@@ -3,5 +3,7 @@
 
     <string name="hello">Hello World, ScannerActivity!</string>
     <string name="app_name">Scanner</string>
+    <string name="a">ведро</string>
+    <string name="s">ивановно</string>
 
 </resources>

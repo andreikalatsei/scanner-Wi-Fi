@@ -14,6 +14,7 @@ import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,6 +59,7 @@ public class ScannerActivity extends Activity {
  
     public void onCreate(Bundle savedInstanceState) {
        super.onCreate(savedInstanceState);
+       requestWindowFeature(Window.FEATURE_NO_TITLE); //скрываем заголовок
        setContentView(R.layout.main);
        mainText = (TextView) findViewById(R.id.TextView01);
        mainWifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
@@ -113,6 +115,10 @@ public class ScannerActivity extends Activity {
     		case 3:
     			break;
     		case 4:
+    			// подключаемся к БД
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+    			//int clearCount = db.delete("mytable", null, null);
+    			// dbHelper.close();
     			break;
     		case 5:
     			finish();
