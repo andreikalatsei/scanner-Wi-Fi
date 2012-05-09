@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, ScannerActivity!</string>
+    <string name="app_name">Scanner</string>
+    <string name="ведро">ведро</string>
+    <string name="ивановно">ивановно</string>
+
+</resources>

@@ -1,0 +1,195 @@
+package scanner.namespace;
+
+import java.util.List;
+
+import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.wifi.ScanResult;
+import android.net.wifi.WifiManager;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+
+public class ScannerActivity extends Activity {
+	TextView mainText;
+    WifiManager mainWifi;
+    WifiReceiver receiverWifi;
+    List<ScanResult> wifiList;
+    StringBuilder sb = new StringBuilder();
+    boolean wifiState; //хранение исходного состояния wifi в телефоне
+    
+    DBHelper dbHelper;
+    
+    Location location;
+    LocationManager locationManager;
+    LocationListener locationListener = new LocationListener(){
+
+		public void onLocationChanged(Location arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void onProviderDisabled(String arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void onProviderEnabled(String arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
+			// TODO Auto-generated method stub
+			
+		}
+    };
+ 
+    public void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.main);
+       mainText = (TextView) findViewById(R.id.TextView01);
+       mainWifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+       receiverWifi = new WifiReceiver();
+       registerReceiver(receiverWifi, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
+       //если wifi в телефоне выключен, включаем его
+       wifiState = mainWifi.isWifiEnabled();
+       if (!wifiState){
+    	   mainWifi.setWifiEnabled(true);
+       }
+       mainWifi.startScan();
+       mainText.setText("\nStarting Scan...\n");
+       
+       //context = Context.LOCATION_SERVICE;
+       locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+       locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+       //provider = LocationManager.GPS_PROVIDER;
+       //location = locationManager.getLastKnownLocation(provider);
+       
+       // создаем объект для создания и управления версиями БД
+       dbHelper = new DBHelper(this);
+    }
+ 
+    public boolean onCreateOptionsMenu(Menu menu) {     
+    	 menu.add (Menu.FIRST, 1, 1, "Обновить");  
+         menu.add (Menu.FIRST, 2, 2, "Карта");           
+         menu.add (Menu.FIRST, 3, 3, "Просмотр базы");  
+         menu.add (Menu.FIRST, 4, 4, "Удалить базу");  
+         menu.add (Menu.FIRST, 5, 5, "Выход");  
+           
+         //menu.add (Menu.CATEGORY_SECONDARY, 6, 6, "Item 1");  
+         //menu.add (Menu.CATEGORY_SECONDARY, 7, 7, "Item 2");  
+         //menu.add (Menu.CATEGORY_SECONDARY, 8, 8, "Item 3");  
+        return super.onCreateOptionsMenu(menu);
+    }
+ 
+    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+    	switch (item.getItemId()) {
+    		case 1:
+		        mainWifi.startScan();
+		        mainText.setText("Starting Scan");
+		        
+		        // location = locationManager.getLastKnownLocation(provider);
+		        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+		        break;
+	        
+    		case 2:
+    			Intent intent = new Intent(this, Maps.class);
+    			intent.putExtra("latitude", location.getLatitude());
+    			intent.putExtra("longitude", location.getLongitude());
+    		    startActivity(intent);
+    		    break;
+    		case 3:
+    			break;
+    		case 4:
+    			// удаляем все записи
+    			
+    			// подключаемся к БД
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+    		    int clearCount = db.delete("myDatabase", null, null);
+    		    //dbHelper.close();
+    			break;
+    		case 5:
+    			finish();
+	    }
+        return super.onMenuItemSelected(featureId, item);
+    }
+ 
+    protected void onPause() {
+    	// выключаем отслеживание
+        locationManager.removeUpdates(locationListener);
+        unregisterReceiver(receiverWifi);
+        super.onPause();
+    }
+ 
+    protected void onResume() {
+    	//включаем отслеживание
+    	locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+        registerReceiver(receiverWifi, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
+        super.onResume();
+    }
+    
+    /*protected void onStop(){
+    	if(wifiState){
+    		mainWifi.setWifiEnabled(false);
+    	}
+    }*/
+ 
+    class WifiReceiver extends BroadcastReceiver {
+    	
+		public void onReceive(Context c, Intent intent) {
+            sb = new StringBuilder();
+            wifiList = mainWifi.getScanResults();
+            
+            // подключаемся к БД
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
+            // создаем объект для данных
+            ContentValues cv = new ContentValues();
+            location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            
+            for(int i = 0; i < wifiList.size(); i++){
+                sb.append(new Integer(i+1).toString() + ".");
+                sb.append((wifiList.get(i)).toString());
+                sb.append("\n");
+                
+                cv.put("name", wifiList.get(i).SSID);
+                cv.put("latitude", location.getLatitude());
+                cv.put("longitude", location.getLongitude());
+                long rowID = db.insert("mytable", null, cv);
+                
+                sb.append(rowID);
+                sb.append("\n");
+            }
+            sb.append("\n");
+          
+            if (location != null){
+	            sb.append(location.getLatitude());
+	            sb.append("\n");
+	            sb.append(location.getLongitude());
+	            sb.append("\n");
+	            if (location.hasAccuracy()){
+	            	sb.append(location.getAccuracy());
+	            	sb.append("\n");
+	            }
+	            if (location.hasAltitude()){
+	            	sb.append(location.getAltitude());
+	            }
+            }
+            else
+            	Toast.makeText(getApplicationContext(), "Не удалось получить координаты", Toast.LENGTH_LONG).show();
+            mainText.setText(sb);
+            dbHelper.close();
+        }
+    }
+}

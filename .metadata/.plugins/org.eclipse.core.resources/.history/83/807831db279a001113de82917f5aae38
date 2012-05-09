@@ -1,0 +1,5 @@
+package scanner.namespace;
+
+public class DB {
+
+}

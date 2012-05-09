@@ -1,0 +1,110 @@
+package scanner.namespace;
+
+import android.app.ListActivity;
+import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.ListView;
+
+public class Search extends ListActivity {
+    //объ€вл€ем переменные
+    private EditText searchText;
+    private DBHelper recordsDBHelper;
+    private ListView list;
+    private Adapter notes;
+    //вложенный класс Binder описан ниже
+    private Binder binder;
+
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.search);
+
+        binder = new Binder();
+        list = getListView();
+
+        //устанавливаем кликабельность на нашем списке и указываем обработчик кликов, 
+        //который при тапе с     помощью intent передаЄт id записи, который мы поместили в 
+        //тэг(см. выше), в активити с картой и осуществл€ет переход на него.
+       /* list.setClickable(true);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> av, View v, int pos, long id) {
+                Intent intent = new Intent();
+                intent.putExtra("ID", (Long) v.getTag());
+                intent.setClass(Search.this, Map.class);
+                startActivity(intent);
+            }
+        });*/
+    
+        //searchText = (EditText) findViewById(R.id.search_text);
+
+        //указываем обработчик изменени€ введенного к поле фильтра текста, который при 
+        //срабатывании вызывает метод updateList(), описанный в этом классе ниже
+        /*searchText.addTextChangedListener(new TextWatcher() {
+            public void afterTextChanged(Editable s) {
+            }
+        
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+        
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                updateList(searchText.getText().toString());
+            }
+        });*/
+
+        //здесь создаЄтс€ объект нашего Database HelperТа, с помощью которого мы 
+        //работаем с базой. ќпераци€ открыти€ Ѕƒ довольно ресурсоЄмка€, поэтому 
+        //выполн€ем еЄ в новом отдельном потоке.
+        list.post(new Runnable() {
+            @Override
+            public void run() {
+                recordsDBHelper = new DBHelper(Search.this);
+                recordsDBHelper.open();
+                updateList(searchText.getText().toString());
+            }
+        });
+    
+    }
+    
+    
+    //¬ложенный класс Binder, реализующий интерфейс SimpleCursorAdapter.ViewBinder. 
+    //ѕодробнее о нЄм написано ниже. ¬кратце, здесь в соответствие номеру ветки станции 
+    //ставитс€ в соответствие кружочек с нужным цветом.
+    private static class Binder implements Adapter.ViewBinder {
+        public boolean setViewValue(View view, Cursor c, int i) {
+            if (view.getId() == R.id.line_image) {
+                Integer line = c.getInt(i);
+                switch (line) {
+                    case 0:
+                        ((ImageView) view).setImageResource(R.drawable.line0);
+                        break;
+                    case 1:
+                        ((ImageView) view).setImageResource(R.drawable.line1);
+                        break;
+                    Е
+                    Е
+                }
+                return true;
+            }
+            return false;
+        }
+    } 
+
+    //¬ этом методе происходит инициализаци€ адаптера в соответствии с введенным в 
+    //фильтре текстом.
+    private void updateList(String s) {
+        if (recordsDBHelper.isReady()) {
+            //выт€гиваем курсор на таблицу с отфильтрованными данными
+            Cursor c = recordsDBHelper.fetchRecordsByQuery(s);
+            startManagingCursor(c);
+            //определ€ем множество полей таблицы, которые нам нужны дл€ заполнени€ списка
+            String[] from = new String[] { RecordsDbHelper.KEY_NAME, RecordsDbHelper.KEY_LINES };
+            //и указываем id элементов €чейки списка(т.е. ImageView, в котором будет 
+            //цветной кружочек, и TextView, в котором будет название станции)
+            int[] to = new int[] { R.id.text1, R.id.line_image };
+            //передаЄм всЄ это в конструктор адаптера
+            notes = new Adapter(Search.this, R.layout.item, c, from, to);
+            notes.setViewBinder(binder);
+            setListAdapter(notes);
+        }
+    }
+}

@@ -1,0 +1,6 @@
+package scanner.namespace;
+
+import ListActivity;
+
+public class Search extends ListActivity {
+}

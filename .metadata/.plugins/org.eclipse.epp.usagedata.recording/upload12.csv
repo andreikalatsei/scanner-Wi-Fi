@@ -1,0 +1,301 @@
+what,kind,bundleId,bundleVersion,description,time
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336321987730
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336321988263
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336321988979
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336321989552
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336321989952
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336321990350
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336321990773
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336321991130
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336321991450
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336321991738
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336321992019
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336321992407
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336321992840
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336321993303
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336321993852
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336321994311
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336321994753
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336321995101
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1336322001999
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1336322004739
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322009051
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322010627
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1336322010634
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322017047
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322018615
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1336322022469
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322033558
+error,log,,,"Internal Error",1336322034982
+error,log,,,"Problems encountered while deleting resources.",1336322034983
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322035904
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1336322035927
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1336322035957
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322038466
+error,log,,,"Internal Error",1336322039445
+error,log,,,"Problems encountered while deleting resources.",1336322039446
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322041122
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1336322041130
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1336322044931
+closed,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1336322046356
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1336322047745
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322049256
+error,log,,,"Internal Error",1336322050191
+error,log,,,"Problems encountered while deleting resources.",1336322050191
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322052214
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1336322052223
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322057594
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322058754
+executed,command,org.eclipse.ui.ide,3.7.0.v20110928-1505,"org.eclipse.ui.project.cleanAction",1336322058760
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322062646
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322112830
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1336322112837
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1336322113908
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322117046
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322249448
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322258817
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322259916
+executed,command,org.eclipse.ui.ide,3.7.0.v20110928-1505,"org.eclipse.ui.project.cleanAction",1336322259926
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322290905
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322292768
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322294455
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322545176
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1336322549414
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.copy",1336322555815
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1336322557568
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1336322569670
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1336322570842
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322578890
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322580791
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322581200
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322582584
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322583196
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322616065
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1336322617688
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1336322618703
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1336322620562
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1336322626383
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1336322629206
+error,log,,,"Current file is not a match for the given config.",1336322634367
+error,log,,,"Current file is not a match for the given config.",1336322634367
+error,log,,,"Current file is not a match for the given config.",1336322634368
+error,log,,,"Current file is not a match for the given config.",1336322634368
+error,log,,,"Current file is not a match for the given config.",1336322634369
+error,log,,,"Current file is not a match for the given config.",1336322634369
+error,log,,,"Current file is not a match for the given config.",1336322634370
+error,log,,,"Current file is not a match for the given config.",1336322634370
+error,log,,,"Current file is not a match for the given config.",1336322634370
+error,log,,,"Current file is not a match for the given config.",1336322634371
+error,log,,,"Current file is not a match for the given config.",1336322634371
+error,log,,,"Current file is not a match for the given config.",1336322634372
+error,log,,,"Current file is not a match for the given config.",1336322634372
+error,log,,,"Current file is not a match for the given config.",1336322634373
+error,log,,,"Current file is not a match for the given config.",1336322634373
+error,log,,,"Current file is not a match for the given config.",1336322634373
+error,log,,,"Current file is not a match for the given config.",1336322634374
+error,log,,,"Current file is not a match for the given config.",1336322634374
+error,log,,,"Current file is not a match for the given config.",1336322634375
+error,log,,,"Current file is not a match for the given config.",1336322634375
+error,log,,,"Current file is not a match for the given config.",1336322634376
+error,log,,,"Current file is not a match for the given config.",1336322634376
+error,log,,,"Current file is not a match for the given config.",1336322634377
+error,log,,,"Current file is not a match for the given config.",1336322634378
+error,log,,,"Current file is not a match for the given config.",1336322634379
+error,log,,,"Current file is not a match for the given config.",1336322634379
+error,log,,,"Current file is not a match for the given config.",1336322634380
+error,log,,,"Current file is not a match for the given config.",1336322634380
+error,log,,,"Current file is not a match for the given config.",1336322634381
+error,log,,,"Current file is not a match for the given config.",1336322634381
+error,log,,,"Current file is not a match for the given config.",1336322634381
+error,log,,,"Current file is not a match for the given config.",1336322634382
+error,log,,,"Current file is not a match for the given config.",1336322634382
+error,log,,,"Current file is not a match for the given config.",1336322634383
+error,log,,,"Current file is not a match for the given config.",1336322634383
+error,log,,,"Current file is not a match for the given config.",1336322634384
+error,log,,,"Current file is not a match for the given config.",1336322634384
+error,log,,,"Current file is not a match for the given config.",1336322634385
+error,log,,,"Current file is not a match for the given config.",1336322634385
+error,log,,,"Current file is not a match for the given config.",1336322634385
+error,log,,,"Current file is not a match for the given config.",1336322634386
+error,log,,,"Current file is not a match for the given config.",1336322634386
+error,log,,,"Current file is not a match for the given config.",1336322634387
+error,log,,,"Current file is not a match for the given config.",1336322634388
+error,log,,,"Current file is not a match for the given config.",1336322634388
+error,log,,,"Current file is not a match for the given config.",1336322634389
+error,log,,,"Current file is not a match for the given config.",1336322634389
+error,log,,,"Current file is not a match for the given config.",1336322634390
+error,log,,,"Current file is not a match for the given config.",1336322634391
+error,log,,,"Current file is not a match for the given config.",1336322634391
+error,log,,,"Current file is not a match for the given config.",1336322634392
+error,log,,,"Current file is not a match for the given config.",1336322634392
+error,log,,,"Current file is not a match for the given config.",1336322634393
+error,log,,,"Current file is not a match for the given config.",1336322634395
+error,log,,,"Current file is not a match for the given config.",1336322634395
+error,log,,,"Current file is not a match for the given config.",1336322634396
+error,log,,,"Current file is not a match for the given config.",1336322634397
+error,log,,,"Current file is not a match for the given config.",1336322634397
+error,log,,,"Current file is not a match for the given config.",1336322634398
+error,log,,,"Current file is not a match for the given config.",1336322634399
+error,log,,,"Current file is not a match for the given config.",1336322634399
+error,log,,,"Current file is not a match for the given config.",1336322634400
+error,log,,,"Current file is not a match for the given config.",1336322634400
+error,log,,,"Current file is not a match for the given config.",1336322634401
+error,log,,,"Current file is not a match for the given config.",1336322634401
+error,log,,,"Current file is not a match for the given config.",1336322634402
+error,log,,,"Current file is not a match for the given config.",1336322634403
+error,log,,,"Current file is not a match for the given config.",1336322634403
+error,log,,,"Current file is not a match for the given config.",1336322634404
+error,log,,,"Current file is not a match for the given config.",1336322634405
+error,log,,,"Current file is not a match for the given config.",1336322634405
+error,log,,,"Current file is not a match for the given config.",1336322634406
+error,log,,,"Current file is not a match for the given config.",1336322634406
+error,log,,,"Current file is not a match for the given config.",1336322634407
+error,log,,,"Current file is not a match for the given config.",1336322634408
+error,log,,,"Current file is not a match for the given config.",1336322634408
+error,log,,,"Current file is not a match for the given config.",1336322634409
+error,log,,,"Current file is not a match for the given config.",1336322634410
+error,log,,,"Current file is not a match for the given config.",1336322634411
+error,log,,,"Current file is not a match for the given config.",1336322634411
+error,log,,,"Current file is not a match for the given config.",1336322634413
+error,log,,,"Current file is not a match for the given config.",1336322634414
+error,log,,,"Current file is not a match for the given config.",1336322634420
+error,log,,,"Current file is not a match for the given config.",1336322634421
+error,log,,,"Current file is not a match for the given config.",1336322634422
+error,log,,,"Current file is not a match for the given config.",1336322634424
+opened,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1336322634893
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1336322634970
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322636702
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322644549
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1336322647781
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1336322651093
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1336322651137
+closed,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1336322651137
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1336322652788
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322654088
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322655394
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1336322655403
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1336322658005
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322664607
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322665625
+executed,command,org.eclipse.ui.ide,3.7.0.v20110928-1505,"org.eclipse.ui.project.cleanAction",1336322665634
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322679771
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322826811
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322831907
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322872274
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1336322873673
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1336322878805
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1336322880457
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322891092
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322909540
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336322939228
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336323014842
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336323016210
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336323257987
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1336323259466
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1336323264209
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336323273489
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336323276117
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336323280972
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1336323287247
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1336323293346
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1336323295620
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1336323315025
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336323318149
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336323448185
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1336323450590
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1336323453053
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1336323461991
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1336323465550
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1336323475714
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336323478058
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336323479858
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1336323489163
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1336323493596
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336323512438
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336323519835
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336323557620
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336323996017
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1336323999187
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324000811
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324001257
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324001608
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324001904
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324002180
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324002475
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324002834
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324003200
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324003584
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324005687
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1336324009500
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1336324037395
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1336324040443
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336324047075
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336324095225
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1336324099233
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336324125656
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336324136208
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1336324137868
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1336324148966
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336324159034
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336324698988
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324700553
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324700780
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324701021
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324701247
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324701466
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324701642
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324701854
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324702081
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324702350
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324702638
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324702936
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324703223
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324703795
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324704246
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324704789
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324705106
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1336324705754
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.redo",1336324709738
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.redo",1336324710501
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1336324716468
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1336324719730
+started,bundle,org.eclipse.jst.ws.jaxws.ui,1.0.100.v201104032053,"org.eclipse.jst.ws.jaxws.ui",1336324731878
+started,bundle,org.eclipse.jpt.jaxb.ui,1.1.2.v201201260000,"org.eclipse.jpt.jaxb.ui",1336324732121
+started,bundle,org.eclipse.jpt.jpa.ui,3.0.2.v201201243020,"org.eclipse.jpt.jpa.ui",1336324732654
+started,bundle,org.eclipse.mylyn.java.ui,3.7.0.v20120319-0200,"org.eclipse.mylyn.java.ui",1336324732820
+started,bundle,org.eclipse.pde.api.tools,1.0.301.v20111129-2053,"org.eclipse.pde.api.tools",1336324733022
+started,bundle,org.eclipse.pde.api.tools.ui,1.0.301.v20110803_r371,"org.eclipse.pde.api.tools.ui",1336324733024
+started,bundle,org.eclipse.jpt.jaxb.core,1.0.2.v201111103010,"org.eclipse.jpt.jaxb.core",1336324733537
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1336324734801
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336324738297
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336324739320
+error,log,,,"Internal Error",1336324744967
+executed,command,,,"AUTOGEN:::org.eclipse.jdt.internal.ui.CompilationUnitEditor.ruler.actions/org.eclipse.jdt.internal.ui.javaeditor.JavaSelectRulerAction",1336324749707
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336324751143
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336324751313
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336324758015
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336324818525
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1336324821241
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1336324824274
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1336324825452
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1336324827443
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1336324828836
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336324829960
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336325623172
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336325640686
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336325642334
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336325679606
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336325775729
+activated,editor,com.android.ide.eclipse.adt,18.0.0.v201203301601-306762,"com.android.ide.eclipse.editors.CommonXmlEditor",1336325777860
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1336325784006
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336325786049
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336325800235
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1336325803461
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1336325809510
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1336325812147
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336325825162
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336325828000
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336325858964
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336325860336
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336325860792
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1336325861850
