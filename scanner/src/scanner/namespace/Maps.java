@@ -10,8 +10,12 @@ import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.drawable.Drawable;
+import android.location.LocationManager;
 import android.os.Bundle; 
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.Window;
 
 public class Maps extends MapActivity {
@@ -45,10 +49,37 @@ public class Maps extends MapActivity {
         
         mapOverlays = mapView.getOverlays();
         drawable =  this.getResources().getDrawable(R.drawable.ic_launcher);
-        itemizedoverlay = new MyItemizedOverlay(drawable);
-        OverlayItem overlayitem = new OverlayItem(point, "@string/a", "s");
+        
+        
+        new Runnable() {
+            public void run() {
+               
+            }
+        };
+        // открываем подключение к БД
+		  /*  DB db = new DB(this);
+		    db.open();
+		   
+		    Cursor c = db.getAllData();
+		    if (c.moveToFirst()) {
+		    	 int columnLat = c.getColumnIndex(DB.COLUMN_LAT);
+		    	 int colunmLong = c.getColumnIndex(DB.COLUMN_LONG);
+		    	 do {
+		    		 GeoPoint gp = new GeoPoint((int) (c.getDouble(columnLat) * 1E6), (int) (c.getDouble(colunmLong)* 1E6));
+		    		 itemizedoverlay = new MyItemizedOverlay(drawable);
+		    	     OverlayItem overlayitem = new OverlayItem(gp, "", "");
+		    	     itemizedoverlay.addOverlay(overlayitem);
+		    	     mapOverlays.add(itemizedoverlay);
+		    	 } while (c.moveToNext());    	 
+		    }
+		    db.close();*/
+        
+        
+        
+        /*itemizedoverlay = new MyItemizedOverlay(drawable);
+        OverlayItem overlayitem = new OverlayItem(point, "", "");
         itemizedoverlay.addOverlay(overlayitem);
-        mapOverlays.add(itemizedoverlay);
+        mapOverlays.add(itemizedoverlay);*/
     }
  
 	 @Override
@@ -56,4 +87,18 @@ public class Maps extends MapActivity {
 	  // TODO Auto-generated method stub
 	  return false;
 	 }
+	   
+	 public boolean onCreateOptionsMenu(Menu menu) {     
+    	 menu.add (Menu.FIRST, 1, 1, "Выход");  
+    	 return super.onCreateOptionsMenu(menu);
+	 }
+	 
+	 public boolean onMenuItemSelected(int featureId, MenuItem item) {
+	    	switch (item.getItemId()) {
+	    		case 1:
+			       finish();
+			        break;      
+		    }
+	        return super.onMenuItemSelected(featureId, item);
+	    }
 }

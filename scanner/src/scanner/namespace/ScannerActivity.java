@@ -8,10 +8,12 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
@@ -30,8 +32,10 @@ public class ScannerActivity extends Activity {
     StringBuilder sb = new StringBuilder();
     boolean wifiState; //хранение исходного состояния wifi в телефоне
     
-    DBHelper dbHelper;
-    
+    String[] providers = new String[] 
+    	    { LocationManager.GPS_PROVIDER, LocationManager.NETWORK_PROVIDER};
+    SQLiteDatabase db;
+    private static final String TAG = "myLogs";
     Location location;
     LocationManager locationManager;
     LocationListener locationListener = new LocationListener(){
@@ -70,17 +74,21 @@ public class ScannerActivity extends Activity {
        if (!wifiState){
     	   mainWifi.setWifiEnabled(true);
        }
+       
+       // создаем объект для создания и управления версиями БД
+      // dbHelper = DBHelper.getInstance();
        mainWifi.startScan();
        mainText.setText("\nStarting Scan...\n");
        
        //context = Context.LOCATION_SERVICE;
        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-       locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+       for (String provider : providers) {
+    	   locationManager.requestLocationUpdates(provider, 0, 0, locationListener);
+       }
        //provider = LocationManager.GPS_PROVIDER;
        //location = locationManager.getLastKnownLocation(provider);
        
-       // создаем объект для создания и управления версиями БД
-       dbHelper = new DBHelper(this);
+       Log.d(TAG,"------end oncreate------");
     }
  
     public boolean onCreateOptionsMenu(Menu menu) {     
@@ -113,12 +121,14 @@ public class ScannerActivity extends Activity {
     		    startActivity(intent);
     		    break;
     		case 3:
+    			intent = new Intent (this, ListBD.class);
+    			startActivity(intent);
     			break;
     		case 4:
-    			// подключаемся к БД
-                SQLiteDatabase db = dbHelper.getWritableDatabase();
-    			//int clearCount = db.delete("mytable", null, null);
-    			// dbHelper.close();
+    			DbAdapter dbHelper = new DbAdapter(getBaseContext());
+                dbHelper.open();
+                dbHelper.deleteTable();
+                dbHelper.close();
     			break;
     		case 5:
     			finish();
@@ -149,27 +159,31 @@ public class ScannerActivity extends Activity {
     class WifiReceiver extends BroadcastReceiver {
     	
 		public void onReceive(Context c, Intent intent) {
+			Log.d(TAG,"------wifi receiver----");
             sb = new StringBuilder();
             wifiList = mainWifi.getScanResults();
             
-            // подключаемся к БД
-            SQLiteDatabase db = dbHelper.getWritableDatabase();
-            // создаем объект для данных
-            ContentValues cv = new ContentValues();
-            location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            location = null;
+            for (String provider : providers) {
+            	location = locationManager.getLastKnownLocation(provider);
+            		if (location != null) {
+            	    break;
+            	   }
+            }
             
+           // location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            // подключаемся к БД
+            DbAdapter dbHelper = new DbAdapter(getBaseContext());
+            dbHelper.open();
+                       
             for(int i = 0; i < wifiList.size(); i++){
                 sb.append(new Integer(i+1).toString() + ".");
                 sb.append((wifiList.get(i)).toString());
                 sb.append("\n");
-                
-                cv.put("name", wifiList.get(i).SSID);
-                cv.put("latitude", location.getLatitude());
-                cv.put("longitude", location.getLongitude());
-                long rowID = db.insert("mytable", null, cv);
-                
-                sb.append(rowID);
-                sb.append("\n");
+
+               sb.append(dbHelper.createRecord(wifiList.get(i).BSSID, wifiList.get(i).SSID, 
+            		   location.getLatitude(), location.getLongitude(), wifiList.get(i).level, wifiList.get(i).frequency));
+               sb.append("\n");
             }
             sb.append("\n");
           
@@ -179,6 +193,7 @@ public class ScannerActivity extends Activity {
 	            sb.append(location.getLongitude());
 	            sb.append("\n");
 	            if (location.hasAccuracy()){
+	            	sb.append("Accuracy ");
 	            	sb.append(location.getAccuracy());
 	            	sb.append("\n");
 	            }
@@ -188,6 +203,15 @@ public class ScannerActivity extends Activity {
             }
             else
             	Toast.makeText(getApplicationContext(), "Не удалось получить координаты", Toast.LENGTH_LONG).show();
+            Cursor cur = dbHelper.fetchAll();
+            if (cur.moveToFirst()){
+	            sb.append("\n");
+	            int nameColSSID = cur.getColumnIndex(dbHelper.KEY_SSID);
+	            for (int i = 0; i < cur.getCount(); i++, cur.moveToNext()){
+	                sb.append(cur.getString(nameColSSID));
+	                sb.append("\n");
+	            }
+            }
             mainText.setText(sb);
             dbHelper.close();
         }
